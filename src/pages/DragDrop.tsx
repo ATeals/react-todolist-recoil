@@ -1,7 +1,7 @@
 import React from "react";
 import { DragDropContext, Droppable, Draggable, DropResult } from "react-beautiful-dnd";
 import { useForm } from "react-hook-form";
-import { atom, selector, useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { atom, useRecoilState, useSetRecoilState } from "recoil";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -47,11 +47,6 @@ interface Todoitem {
     isComplete: boolean;
     category: string;
 }
-
-const todoListState = atom<Todoitem[]>({
-    key: "TODOLISTSTATE",
-    default: [],
-});
 
 interface CategoryState {
     title: string;

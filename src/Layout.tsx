@@ -5,7 +5,7 @@ import { GlobalStyle } from "./styles/GlobalStyle";
 function Layout() {
     return (
         <>
-            {/* <GlobalStyle /> */}
+            <GlobalStyle />
             <Outlet />
         </>
     );
