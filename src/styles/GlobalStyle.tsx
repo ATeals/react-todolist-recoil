@@ -5,7 +5,6 @@ export const GlobalStyle = createGlobalStyle`
         background-color : ${(props) => props.theme.color.background};
         color : ${(props) => props.theme.text};
 
-        max-width: 480px;
-        margin: 0 auto;
+        padding : 20px
     }
 `;
