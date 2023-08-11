@@ -62,21 +62,19 @@ const useTodos = () => {
         setCategorys((categorys) => {
             const copy = { ...categorys };
             delete copy[Object.keys(categorys).find((i) => categorys[i].title === category.title) as string];
-            return { ...copy };
+
+            const arr = [...Object.keys(copy).map((id) => copy[id])].sort((a, b) => a.index - b.index);
+
+            return arr.reduce((a, c, index) => ({ ...a, [c.id]: { ...c, index } }), {});
         });
 
     const changeCategoryLocation = (source: DraggableLocation, destination: DraggableLocation) => {
-        setCategorys((categorys) => {
-            const sourceId = Object.keys(categorys).find((i) => categorys[i].index === source.index);
-            const destinationId = Object.keys(categorys).find((i) => categorys[i].index === destination.index);
+        setCategorys(() => {
+            const arr = [...categoryArray];
+            const [removeItem] = arr.splice(source.index, 1);
+            arr.splice(destination.index, 0, removeItem);
 
-            if (!sourceId || !destinationId) return { ...categorys };
-
-            return {
-                ...categorys,
-                [sourceId]: { ...categorys[sourceId], index: destination.index },
-                [destinationId]: { ...categorys[destinationId], index: source.index },
-            };
+            return arr.reduce((a, c, index) => ({ ...a, [c.id]: { ...c, index } }), {});
         });
     };
 
