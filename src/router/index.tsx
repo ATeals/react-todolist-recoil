@@ -1,8 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 
-import Layout from "../Layout";
-import DD from "@/pages/DD";
-import DragDrop from "@/pages/DragDrop";
+import Layout from "@/Layout";
+import Home from "@/pages/Home";
 
 const router = createBrowserRouter(
     [
@@ -12,11 +11,7 @@ const router = createBrowserRouter(
             children: [
                 {
                     path: "/",
-                    element: <DD />,
-                },
-                {
-                    path: "/dnd",
-                    element: <DragDrop />,
+                    element: <Home />,
                 },
             ],
         },
